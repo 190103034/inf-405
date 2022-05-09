@@ -1,0 +1,285 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+section {
+  padding: 7em 0;
+}
+
+.container {
+  width: 85%;
+  max-width: 65em;
+  margin: 0 auto;
+}
+
+.split {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &>* {
+    flex-basis: 30%;
+    min-width: 15em;
+  }
+}
+
+.spacing>*+* {
+  margin-top: var(--spacer, 2rem)
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--clr-text, #fff);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  padding: .5em 1.25em;
+  background: var(--clr-accent, blue);
+  border-radius: .25em;
+  transition:
+    transform 250ms ease-in-out,
+    opacity 250ms linear;
+}
+
+.btn:hover,
+.btn:focus {
+  transform: scale(1.1);
+  opacity: .9;
+}
+
+.primary-title {
+  font-size: 4rem;
+  font-size: clamp(3rem, calc(5vw + 1rem), 4.5rem);
+  line-height: 1;
+  text-transform: uppercase;
+  outline: #000;
+  &~p {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(2.5rem, calc(5vw + 1rem), 4rem);
+  line-height: 1;
+  color: #17353d;
+  margin-bottom: 4rem;
+  &:not(:first-child) {
+    margin-top: 50px;
+  }
+}
+
+.hero {
+  color: white;
+  text-align: center;
+  padding: 15em 0;
+  background: #04a9c4;
+
+  @supports (background-blend-mode: multiply) {
+    background: url(../img/Eagle_and_sun_from_the_Kazakh_flag.svg.png),
+      radial-gradient(#04a9c4, #0591a7);
+    background-blend-mode: hard-light;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
+.featured {
+  background: #eee;
+
+  &__item {
+    display: block;
+    position: relative;
+    transform: scale(.85);
+    transition: transform 250ms ease-in-out;
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    line-height: 1.2;
+
+
+
+    &:hover,
+    &:focus {
+      transform: scale(1);
+
+      .featured__details {
+        opacity: 1;
+        text-shadow: 0 0 2em rgba(#fff, 1)
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      padding: 75% 75% 0 0;
+      border-radius: 50%;
+      background: #2193b0;
+      z-index: -1;
+    }
+  }
+
+  &__details {
+    opacity: 0;
+    transition: opacity 250ms linear;
+
+    span {
+      display: block;
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.product {
+  background: radial-gradient(var(--clr-inner, limegreen), var(--clr-outer, purple));
+  padding: 3em;
+  border-radius: 1em;
+  margin-bottom: 5em;
+  text-align: center;
+
+  &__title {
+    font-size: clamp(3rem, calc(5vw + 1rem), 5.5rem);
+    text-transform: uppercase;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 0 .2em rgba(#000, .2);
+  }
+
+  &__image {
+    margin: -5em 0 0 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  @media (min-width: 45em) {
+    text-align: left;
+    margin-bottom: 9em;
+
+    &__title {
+      margin: 0;
+    }
+
+    &__image {
+      float: right;
+      width: 45%;
+      shape-margin: 1em;
+      margin: 0 -10em 0 0;
+    }
+
+    &__image1 {
+      shape-outside: url(../img/Budget-Transparent.png);
+    }
+
+    &__image2 {
+      shape-outside: url(../img/hR7xfHZdLIEKICO-Credit-PNG-Transparent-Picture.png);
+    }
+    
+    &__image3 {
+      shape-outside: url(../img/pngegg.png);
+    }
+
+    &__image4 {
+      shape-outside: url(../img/0-6359_all-social-media-logos-png-jpg-black-and.png);
+      margin: 0 -5em 0 0;
+    }
+
+    &__image5 {
+      shape-outside: url(../img/Education-icon-concept-on-transparent-background-PNG.png);
+      margin: 0 -5em 0 0;
+    }
+
+    &__image6 {
+      shape-outside: url(../img/pngwing.com.png);
+      margin: 0 -10em 0 0;
+    }
+
+    &.shoe-left {
+      .product__image {
+        float: left;
+        margin: 0 0 0 -10em;
+        shape-margin: 2em;
+      }
+    }
+  }
+}
+
+.hero {
+  --clr-accent: #04a9c4;
+}
+
+.shoe-red {
+  --clr-inner: #faa700;
+  --clr-outer: #e48d00;
+  --clr-accent: #a1173c;
+}
+
+.shoe-white {
+  --clr-inner: #fce4b3;
+  --clr-outer: #eac886;
+  --clr-accent: #2f4858;
+}
+
+.shoe-blue {
+  --clr-inner: #6dd5ed;
+  --clr-outer: #2193b0;
+  --clr-accent: #008951;
+}
+
+.shoe-blue {
+  --clr-inner: #6dd5ed;
+  --clr-outer: #2193b0;
+  --clr-accent: #008951;
+}
+
+.shoe-4 {
+  --clr-inner: #C9E3AC;
+  --clr-outer: #90BE6D;
+  --clr-accent: #008951;
+}
+
+.shoe-5 {
+  --clr-inner: #9E1946;
+  --clr-outer: #710627;
+  --clr-accent: #008951;
+  color: white;
+}
+
+.shoe-6 {
+  --clr-inner: #EEF5DB;
+  --clr-outer: #C7EFCF;
+  --clr-accent: #008951;
+}
