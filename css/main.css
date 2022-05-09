@@ -243,6 +243,12 @@ section {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .product__title {
+    font-size: 2rem;
+  }
+}
+
 .hero {
   --clr-accent: #04a9c4;
 }
